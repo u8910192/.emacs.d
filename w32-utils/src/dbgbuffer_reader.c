@@ -129,7 +129,9 @@ int main(int argc, char* argv[])
     {
       if (WaitForSingleObject(hDataReadyEvent, INFINITE) == WAIT_OBJECT_0)
 	{
-	  fprintf(stdout, "%s\n", bufferData.pDBWinBuffer->data);
+	  fprintf(stdout, "[%d] %s\n",
+		  bufferData.pDBWinBuffer->dwProcessId,
+		  bufferData.pDBWinBuffer->data);
 	  SetEvent(hBufferReadyEvent);
 	}
     }
