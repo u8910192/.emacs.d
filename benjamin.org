@@ -1,0 +1,22 @@
+#+TITLE: Banjamin Lee's Emacs configuration
+
+* Emacs init
+
+** add package repos
+
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "https://melpa.org/packages/"))
+  (package-initialize)
+#+END_SRC
+
+** window configuration
+
+#+BEGIN_SRC emacs-lisp
+  (when window-system
+    (tooltip-mode -1)
+    (tool-bar-mode -1)
+    (menu-bar-mode 1)
+    (scroll-bar-mode -1))
+#+END_SRC
