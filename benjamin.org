@@ -11,6 +11,16 @@
   (package-initialize)
 #+END_SRC
 
+** general configuration
+
+#+BEGIN_SRC emacs-lisp
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+  (setq delete-old-versions -1)
+  (setq version-control t)
+  (setq vc-make-backup-files t)
+  (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+#+END_SRC
+
 ** window configuration
 
 #+BEGIN_SRC emacs-lisp
@@ -19,4 +29,23 @@
     (tool-bar-mode -1)
     (menu-bar-mode 1)
     (scroll-bar-mode -1))
+#+END_SRC
+
+** font configuration
+
+#+BEGIN_SRC emacs-lisp
+  (set-default-font "Source Code Pro 14")
+#+END_SRC
+
+** org-mode configuration
+
+#+BEGIN_SRC emacs-lisp
+  (require 'org)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)
+     (ruby . t)
+     (sh . t)
+     (C . t)))
 #+END_SRC
