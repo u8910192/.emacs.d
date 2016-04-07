@@ -1,14 +1,24 @@
 #+TITLE: Banjamin Lee's Emacs configuration
 
-* Emacs init
-
-** add package repos
+* Personal information
 
 #+BEGIN_SRC emacs-lisp
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "https://melpa.org/packages/"))
-  (package-initialize)
+  (setq user-full-name "Benjamin Lee"
+        user-mail-address "u8910192@hotmail.com")
+#+END_SRC
+
+* Emacs init
+
+** package configuration
+
+#+BEGIN_SRC emacs-lisp
+    (require 'package)
+    (add-to-list 'package-archives
+                 '("melpa" . "https://melpa.org/packages/"))
+    (package-initialize)
+    ;(package-refresh-contents)
+    (unless (package-installed-p 'use-package)
+      (package-install 'use-package))
 #+END_SRC
 
 ** general configuration
@@ -49,3 +59,4 @@
      (sh . t)
      (C . t)))
 #+END_SRC
+
